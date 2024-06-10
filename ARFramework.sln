@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{886C7612-F5AF-4A75-A86D-9CCFAFDF9576}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AR.AspNetCore", "src\AR.AspNetCore\AR.AspNetCore.csproj", "{99A079E4-EC86-4A9A-8505-4AD2E8129387}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{3422C4D2-26EB-402C-A545-0F902C3F0FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.WebApi", "samples\Sample.WebApi\Sample.WebApi.csproj", "{D2F99BB0-A65C-4988-B35F-C77B6822031E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99A079E4-EC86-4A9A-8505-4AD2E8129387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A079E4-EC86-4A9A-8505-4AD2E8129387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A079E4-EC86-4A9A-8505-4AD2E8129387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A079E4-EC86-4A9A-8505-4AD2E8129387}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2F99BB0-A65C-4988-B35F-C77B6822031E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2F99BB0-A65C-4988-B35F-C77B6822031E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2F99BB0-A65C-4988-B35F-C77B6822031E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2F99BB0-A65C-4988-B35F-C77B6822031E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99A079E4-EC86-4A9A-8505-4AD2E8129387} = {886C7612-F5AF-4A75-A86D-9CCFAFDF9576}
+		{D2F99BB0-A65C-4988-B35F-C77B6822031E} = {3422C4D2-26EB-402C-A545-0F902C3F0FE8}
+	EndGlobalSection
+EndGlobal
