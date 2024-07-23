@@ -27,7 +27,7 @@ public static class ServiceCollectionExt
 
         return builder;
     }
-    
+
     /// <summary>
     /// Allows any method, header
     /// </summary>
@@ -35,27 +35,34 @@ public static class ServiceCollectionExt
     /// <returns></returns>
     public static IServiceCollection AddApiCors(this IServiceCollection services)
     {
+        Console.WriteLine("AllowCors added");
+        services.AddCors();
         services.AddCors(
             options => options.AddPolicy("AllowCors",
                 builder =>
                 {
-                    builder
-                        .AllowAnyMethod()
-                        .AllowCredentials()
-                        .SetIsOriginAllowed(host => true)
-                        .AllowAnyHeader();
+                    builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+                    // builder
+                    //     .AllowAnyOrigin()
+                    //     .AllowAnyHeader()
+                    //     .AllowAnyMethod()
+                    //     .SetIsOriginAllowed(s => true);
+                    // .AllowAnyMethod()
+                    // .AllowCredentials()
+                    // .SetIsOriginAllowed(host => true)
+                    // .AllowAnyHeader();
                 })
         );
 
         return services;
     }
-    
+
     public static IServiceCollection AddAutoDI(this IServiceCollection services)
     {
         AutoDIManager.Init(services);
         return services;
     }
-    
+
     public static IServiceCollection AddJwtAuth(this IServiceCollection services, string secretKey)
     {
         var keyByteArray = Encoding.ASCII.GetBytes(secretKey);

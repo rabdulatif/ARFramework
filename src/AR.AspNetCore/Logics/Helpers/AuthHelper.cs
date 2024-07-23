@@ -35,8 +35,8 @@ public class AuthHelper
 
     public const string BearerSchema = "Bearer ";
 
-    public static SymmetricSecurityKey GetSecurityKey()
+    public static SymmetricSecurityKey GetSecurityKey(string secretKey)
     {
-        return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(PARAM_SECRET_KEY));
+        return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
     }
 }

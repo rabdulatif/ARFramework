@@ -19,11 +19,13 @@ public static class ConfigureServiceExt
     
     public static WebApplication UseApiCors(this WebApplication app)
     {
-        app.UseCors(builder => builder
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-
+        app.UseCors("AllowCors");
+        // app.UseCors(s => s
+        //     .AllowAnyMethod()
+        //     .AllowAnyHeader()
+        //     .SetIsOriginAllowed(origin => true)
+        //     .AllowCredentials());
+            
         return app;
     }
 

@@ -31,7 +31,7 @@ public static class SwaggerExt
     {
         swaggerGenOptions.SwaggerDoc(version, new OpenApiInfo
         {
-            Version = version,
+            Version = "v1",
             Title = "API"
         });
     }

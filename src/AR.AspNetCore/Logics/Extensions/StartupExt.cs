@@ -10,7 +10,8 @@ namespace AR.AspNetCore;
 
 public static class StartupExt
 {
-    public static WebApplicationBuilder ConfigureAppWithJwt(this WebApplicationBuilder builder, int port, string secretKey)
+    public static WebApplicationBuilder ConfigureAppWithJwt(this WebApplicationBuilder builder, int port,
+        string secretKey)
     {
         builder.RunPort(port)
             .AddDefaultConfigureServices(secretKey);
@@ -21,21 +22,21 @@ public static class StartupExt
     public static WebApplication BuildApp(this WebApplicationBuilder builder, string serviceName)
     {
         var app = builder.Build();
+        app.UseDeveloperExceptionPage();
         app.UseDefaultConfiguration(serviceName);
-
         return app;
     }
 
     private static WebApplicationBuilder AddDefaultConfigureServices(this WebApplicationBuilder builder,
         string secretKey)
     {
+        builder.Services.AddApiCors();
         builder.Services.AddJwtAuth(secretKey);
         builder.Services.AddControllers().AddNewtonsoftJson(x =>
             x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
 
         builder.Services.AddAutoDI();
-        builder.Services.AddApiSwagger(Assembly.GetExecutingAssembly().GetName().Name);
-        builder.Services.AddApiCors();
+        builder.Services.AddApiSwagger("v1");
         builder.Services.AddHttpContextAccessor();
 
         return builder;
@@ -46,7 +47,6 @@ public static class StartupExt
         if (app.Environment.IsDevelopment())
             app.UseDeveloperExceptionPage();
 
-        app.UseApiCors();
 
         app.UseLanguageMiddleware();
         app.UseErrorHandlingMiddleware();
@@ -58,6 +58,7 @@ public static class StartupExt
         });
 
         app.UseRouting();
+        app.UseApiCors();
         app.MapControllers();
         app.UseAuthorization();
 
